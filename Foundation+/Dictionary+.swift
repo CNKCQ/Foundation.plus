@@ -56,7 +56,7 @@ extension Dictionary {
     func append(_ dicts: Dictionary) -> Dictionary {
         var results = Dictionary()
         [self, dicts].forEach { dic in
-            dic.forEach({ (arg) in
+            dic.forEach({ arg in
                 let (key, value) = arg
                 results[key] = value
             })
