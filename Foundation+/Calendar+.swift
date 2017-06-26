@@ -8,5 +8,5 @@
 
 import Foundation
 
-extension Calendar {
+public extension Calendar {
 }
