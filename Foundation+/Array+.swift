@@ -24,6 +24,13 @@ public extension Array {
     public var random: Element {
         return shuffled[0]
     }
+
+//    public var unique: Array {
+//        return self.reduce([], { result, element in
+//
+//            result self.unique
+//        })
+//    }
 }
 
 public extension Array {
@@ -147,3 +154,4 @@ public extension Array where Element: Equatable {
         remove(at: index(of: object))
     }
 }
+
