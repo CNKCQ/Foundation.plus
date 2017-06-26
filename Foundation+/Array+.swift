@@ -10,27 +10,21 @@ import Foundation
 
 public extension Array {
     /// The array length property sets or returns the number of elements in an array.
-    public var length: Int {
+    var length: Int {
         return count
     }
 
     /// Returns an array containing this sequence shuffled
-    public var shuffled: Array {
+    var shuffled: Array {
         var elements = self
         return elements.shuffle()
     }
 
     /// Returns an element from this sequence shuffled
-    public var random: Element {
+    var random: Element {
         return shuffled[0]
     }
 
-//    public var unique: Array {
-//        return self.reduce([], { result, element in
-//
-//            result self.unique
-//        })
-//    }
 }
 
 public extension Array {
@@ -40,7 +34,7 @@ public extension Array {
     /// - Parameter transform: condition
     /// - Returns: the result of the condition
     @discardableResult
-    public func every(transform: (Element) -> Bool) -> Bool {
+    func every(transform: (Element) -> Bool) -> Bool {
         for e in self {
             while !transform(e) {
                 return false
@@ -54,7 +48,7 @@ public extension Array {
     /// - Parameter element: the static Value
     /// - Returns: array
     @discardableResult
-    public func fill(element: Element) -> Array {
+    func fill(element: Element) -> Array {
         let count = self.count
         return Array(repeating: element, count: count)
     }
@@ -67,7 +61,7 @@ public extension Array {
     /// - Complexity: O(*n*) if the array is bridged, where *n* is the length
     ///   of the array; otherwise, O(1).
     /// - SeeAlso: `removeLast()`
-    public mutating func pop() -> Element? {
+    mutating func pop() -> Element? {
         return popLast()
     }
 
@@ -76,7 +70,7 @@ public extension Array {
     /// - Parameter elements: The elements to add to the end of the array.
     /// - Returns: The new length property of the object upon which the method was called.
     @discardableResult
-    public mutating func push(_ elements: Element...) -> Array {
+    mutating func push(_ elements: Element...) -> Array {
         return self + elements
     }
 
@@ -84,7 +78,7 @@ public extension Array {
     ///
     /// - Returns: A new Array iterator object.
     @discardableResult
-    public func entries() -> [(Int, Element)] {
+    func entries() -> [(Int, Element)] {
         var temp: [(Int, Element)] = []
         for idx in 0 ..< count {
             temp.append((idx, self[idx]))
@@ -98,7 +92,7 @@ public extension Array {
     /// - Parameter elements: Arrays and/or values to concatenate into a new array. See the description below for details
     /// - Returns: A new Array instance.
     @discardableResult
-    public mutating func concat(_ elements: [Element]) -> [Element] {
+    mutating func concat(_ elements: [Element]) -> [Element] {
         return self + elements
     }
 
@@ -106,7 +100,7 @@ public extension Array {
     ///
     /// - Returns: A new shuffled Array
     @discardableResult
-    public mutating func shuffle() -> Array {
+    mutating func shuffle() -> Array {
         indices.dropLast().forEach {
             guard case let index = Int(arc4random_uniform(UInt32(count - $0))) + $0, index != $0 else { return }
             // self.swapAt($0, index)
@@ -119,7 +113,7 @@ public extension Array {
 public extension Array where Element: CustomStringConvertible {
 
     ///  Returns a string representing the Array.
-    public var toString: String {
+    var toString: String {
         var temp: String = ""
         forEach { e in
             temp += String(describing: e)
@@ -131,7 +125,7 @@ public extension Array where Element: CustomStringConvertible {
 public extension Array where Element == String {
 
     /// The join property joins all elements of an array into a string.
-    public var join: String {
+    var join: String {
         return joined()
     }
 }
@@ -143,14 +137,14 @@ public extension Array where Element: Equatable {
     /// - Parameter element: a given element
     /// - Returns: The index of the element at the array
     @discardableResult
-    public func index(of element: Element) -> Int {
+    func index(of element: Element) -> Int {
         return index(of: element) ?? -1
     }
 
     /// Remove first collection element that is equal to the given `object`:
     ///
     /// - Parameter object: The element will remove form the array
-    public mutating func remove(_ object: Element) {
+    mutating func remove(_ object: Element) {
         remove(at: index(of: object))
     }
 }

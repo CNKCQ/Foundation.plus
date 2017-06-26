@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Sequence where Iterator.Element: Hashable {
+public extension Sequence where Iterator.Element: Hashable {
 
     /// Returns an unique sequence
     var unique: [Iterator.Element] {
