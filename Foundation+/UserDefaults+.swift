@@ -8,12 +8,12 @@
 
 import Foundation
 
-extension UserDefaults {
+public extension UserDefaults {
 
     /// Accesses the value associated with the given key for reading and writing.
     ///
     /// - Parameter key: The position of the element to access.
-    public subscript(_ key: String) -> Any? {
+    subscript(_ key: String) -> Any? {
         get {
             return object(forKey: key)
         }

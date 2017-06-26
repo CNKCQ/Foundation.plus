@@ -11,12 +11,12 @@ import Foundation
 public extension Dictionary {
 
     /// Returns an element from this sequence shuffled
-    public var random: Value {
+    var random: Value {
         return Array(values).random
     }
 
     /// The number of key-value pairs in the dictionary.
-    public var size: Int {
+    var size: Int {
         return count
     }
 }
@@ -24,14 +24,14 @@ public extension Dictionary {
 public extension Dictionary {
 
     /// Removes all key-value pairs from the dictionary.
-    public mutating func clear() {
+    mutating func clear() {
         removeAll()
     }
 
     /// Removes the given key and its associated value from the dictionary.
     ///
     /// - Parameter key: The key to remove along with its associated value.
-    public mutating func delete(_ key: Dictionary.Key) {
+    mutating func delete(_ key: Dictionary.Key) {
         removeValue(forKey: key)
     }
 
@@ -39,7 +39,7 @@ public extension Dictionary {
     ///
     /// - Returns: A new dictionary iterator object.
     @discardableResult
-    public func entries() -> [(Dictionary.Key, Dictionary.Value)] {
+    func entries() -> [(Dictionary.Key, Dictionary.Value)] {
         return flatMap({ ($0.key, $0.value) })
     }
 
@@ -48,12 +48,12 @@ public extension Dictionary {
     /// - Parameter key: Required. The key of the element to test for presence in the Dictionary object.
     /// - Returns: Returns true if an element with the specified key exists in the Dictionary object; otherwise false.
     @discardableResult
-    public func has(_ key: Dictionary.Key) -> Bool {
+    func has(_ key: Dictionary.Key) -> Bool {
         return keys.contains(key)
     }
 
     /// Returns a new dictionary of `self` + dicts
-    public func append(_ dicts: Dictionary) -> Dictionary {
+    func append(_ dicts: Dictionary) -> Dictionary {
         var results = Dictionary()
         [self, dicts].forEach { dic in
             dic.forEach({ arg in

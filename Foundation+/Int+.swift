@@ -8,28 +8,28 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     ///  Returns a string representing the Int.
     var toString: String {
         return String(self)
     }
 }
 
-extension Int8 {
+public extension Int8 {
     ///  Returns a string representing the Int.
     var toString: String {
         return String(self)
     }
 }
 
-extension Int16 {
+public extension Int16 {
     ///  Returns a string representing the Int.
     var toString: String {
         return String(self)
     }
 }
 
-extension Int64 {
+public extension Int64 {
     ///  Returns a string representing the Int.
     var toString: String {
         return String(self)

@@ -55,7 +55,7 @@ public extension String {
     }
 }
 
-extension String {
+public extension String {
 
     /// Accesses the element at the specified position. Support "abc"[-1] == "c"
     ///
@@ -76,7 +76,7 @@ extension String {
     ///
     /// - Parameter set: Character set, default is .whitespaces.
     /// - Returns: A new string
-    public func trimmed(set: CharacterSet = .whitespaces) -> String {
+    func trimmed(set: CharacterSet = .whitespaces) -> String {
         return trimmingCharacters(in: set)
     }
 
@@ -84,7 +84,7 @@ extension String {
     ///
     /// - Parameter separator: A specail character
     /// - Returns: camelCaseString
-    public func camelCaseString(separator: String = "_") -> String {
+    func camelCaseString(separator: String = "_") -> String {
         if isEmpty {
             return self
         }
