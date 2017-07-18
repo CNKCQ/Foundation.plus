@@ -64,3 +64,10 @@ public extension Dictionary {
         return results
     }
 }
+
+public extension Dictionary where Value: Equatable {
+    /// See: http://stackoverflow.com/questions/27218669/swift-dictionary-get-key-for-value
+    func allKeysForValue(val: Value) -> [Key] {
+        return filter { $1 == val }.map { $0.0 }
+    }
+}

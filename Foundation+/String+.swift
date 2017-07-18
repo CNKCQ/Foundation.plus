@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension String {
 
@@ -20,6 +21,11 @@ public extension String {
     var double: Double? {
         let numberFormatter = NumberFormatter()
         return numberFormatter.number(from: self)?.doubleValue
+    }
+
+    /// Returns cgFloatValue
+    var cgFloat: CGFloat {
+        return CGFloat(double ?? 0)
     }
 
     /// The string length property returns the count of character in the string.
@@ -53,6 +59,8 @@ public extension String {
     var decoding: String? {
         return removingPercentEncoding
     }
+
+
 }
 
 public extension String {
@@ -72,12 +80,22 @@ public extension String {
         return substring(with: index(startIndex, offsetBy: range.lowerBound) ..< index(startIndex, offsetBy: range.upperBound))
     }
 
+    /// - Returns: return the compare result
+    func isEqual(_ to: String) -> Bool {
+        return self == to
+    }
+
     /// Returns a new string made by removing from both ends of the String characters contained in a given character set.
     ///
     /// - Parameter set: Character set, default is .whitespaces.
     /// - Returns: A new string
     func trimmed(set: CharacterSet = .whitespaces) -> String {
         return trimmingCharacters(in: set)
+    }
+
+    /// - Returns: A new string without spaces
+    func trimAllspace() -> String {
+        return trimmed().replacingOccurrences(of: " ", with: "")
     }
 
     /// Returns a new camelCaseString

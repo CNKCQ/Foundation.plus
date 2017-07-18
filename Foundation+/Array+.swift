@@ -25,6 +25,18 @@ public extension Array {
         return shuffled[0]
     }
 
+    /// Returns an new array from `self`
+    var concat: Array<Any> {
+        var subs: [Any] = []
+        self.forEach { (sub) in
+            if let sub = sub as? Array<Any> {
+                subs += sub.concat
+            } else {
+                subs.append(sub)
+            }
+        }
+        return subs
+    }
 }
 
 public extension Array {
