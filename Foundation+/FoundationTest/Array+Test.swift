@@ -12,8 +12,6 @@ public extension Array {
     var test: String {
         return "test"
     }
-
 }
-
 
 
