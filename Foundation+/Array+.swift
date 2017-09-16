@@ -9,6 +9,11 @@
 import Foundation
 
 public extension Array {
+
+    subscript(safe index: Int) -> Element? {
+        return index < endIndex ? self[index] : nil
+    }
+
     /// The array length property sets or returns the number of elements in an array.
     var length: Int {
         return count
@@ -161,3 +166,6 @@ public extension Array where Element: Equatable {
     }
 }
 
+extension Collection {
+
+}

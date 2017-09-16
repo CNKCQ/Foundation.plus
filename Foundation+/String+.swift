@@ -80,6 +80,13 @@ public extension String {
         return substring(with: index(startIndex, offsetBy: range.lowerBound) ..< index(startIndex, offsetBy: range.upperBound))
     }
 
+
+    /// Return a string which hasSuffix with the parameter
+    public func suffix(with end: String) -> String {
+        guard !self.hasSuffix(end) else { return self }
+        return self + end
+    }
+
     /// - Returns: return the compare result
     func isEqual(_ to: String) -> Bool {
         return self == to
