@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Foundation+"
-  s.version      = "0.0.6"
+  s.version      = "0.0.9"
   s.summary      = "A collection extension for Foundation entity."
 
   s.description  = <<-DESC
