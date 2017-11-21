@@ -121,7 +121,7 @@ public extension Array {
         indices.dropLast().forEach {
             guard case let index = Int(arc4random_uniform(UInt32(count - $0))) + $0, index != $0 else { return }
             // self.swapAt($0, index)
-            swap(&self[$0], &self[index])
+            self.swapAt($0, index)
         }
         return self
     }
@@ -162,6 +162,9 @@ public extension Array where Element: Equatable {
     ///
     /// - Parameter object: The element will remove form the array
     mutating func remove(_ object: Element) {
+        if index(of: object) < 0 {
+            return
+        }
         remove(at: index(of: object))
     }
 }
