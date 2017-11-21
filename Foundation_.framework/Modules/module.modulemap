@@ -1,0 +1,11 @@
+framework module Foundation_ {
+  umbrella header "Foundation_.h"
+
+  export *
+  module * { export * }
+}
+
+module Foundation_.Swift {
+    header "Foundation_-Swift.h"
+    requires objc
+}
