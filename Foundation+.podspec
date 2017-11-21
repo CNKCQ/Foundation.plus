@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Foundation+"
-  s.version      = "0.0.6"
+  s.version      = "0.0.8"
   s.summary      = "A collection extension for Foundation entity."
 
   s.description  = <<-DESC
@@ -35,13 +35,20 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/CNKCQ/Foundation.plus.git", :tag => "#{s.version}" }
 
+if ENV('lib') || ENV('Foundation+')
 
-
-  s.source_files  = "Foundation+", "Foundation+/**/*.{h,m,swift}"
+  s.vendored_frameworks = 'https://github.com/CNKCQ/Foundation.plus/tree/master/Foundation_.framework'
   s.exclude_files = "Foundation+/Exclude"
-
   # s.public_header_files = "Classes/**/*.h"
 
+else
+
+    s.source_files  = "Foundation+", "Foundation+/**/*.{h,m,swift}"
+    s.exclude_files = "Foundation+/Exclude"
+
+     s.public_header_files = "Classes/**/*.h"
+
+end
 
 
   # s.resource  = "icon.png"
