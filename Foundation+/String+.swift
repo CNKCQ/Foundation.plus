@@ -119,3 +119,21 @@ public extension String {
         return "\(first)\(rest)"
     }
 }
+
+extension String {
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let options = [.usesLineFragmentOrigin, .usesFontLeading]
+        let attributes = [NSAttributedString.Key.font: font]
+        let boundingBox = self.boundingRect(with: constraintRect, options: options, attributes: attributes, context: nil)
+        return boundingBox.height
+    }
+    
+    func widthWithConstrainedHeight(height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let options = [.usesLineFragmentOrigin, .usesFontLeading]
+        let attributes = [NSAttributedString.Key.font: font]
+        let boundingBox = self.boundingRect(with: constraintRect, options: options, attributes: attributes, context: nil)
+        return boundingBox.width
+    }
+}
