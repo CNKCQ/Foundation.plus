@@ -123,7 +123,7 @@ public extension String {
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let options = [.usesLineFragmentOrigin, .usesFontLeading]
+        let options:NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
         let attributes = [NSAttributedString.Key.font: font]
         let boundingBox = self.boundingRect(with: constraintRect, options: options, attributes: attributes, context: nil)
         return boundingBox.height
@@ -131,7 +131,7 @@ extension String {
     
     func widthWithConstrainedHeight(height: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let options = [.usesLineFragmentOrigin, .usesFontLeading]
+        let options:NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
         let attributes = [NSAttributedString.Key.font: font]
         let boundingBox = self.boundingRect(with: constraintRect, options: options, attributes: attributes, context: nil)
         return boundingBox.width
