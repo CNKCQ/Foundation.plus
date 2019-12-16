@@ -30,7 +30,7 @@ public extension String {
 
     /// The string length property returns the count of character in the string.
     var length: Int {
-        return characters.count
+        return self.count
     }
 
     /// Returns a localized string, using the main bundle.
@@ -82,7 +82,7 @@ public extension String {
 
 
     /// Return a string which hasSuffix with the parameter
-    public func suffix(with end: String) -> String {
+    func suffix(with end: String) -> String {
         guard !self.hasSuffix(end) else { return self }
         return self + end
     }
