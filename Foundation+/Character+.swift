@@ -9,7 +9,7 @@ import Foundation
 
 public extension Character {
     
-    static func -(lhs: Character, rhs: Character) -> Int {
+    static func - (lhs: Character, rhs: Character) -> Int {
         guard let lasc = lhs.asciiValue, let rasc = rhs.asciiValue else {
             return -1
         }
