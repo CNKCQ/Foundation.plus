@@ -19,6 +19,7 @@ extension Collection {
             return self.lazy.first
         }
         set {
+            
         }
     }
 }

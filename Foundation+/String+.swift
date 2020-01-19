@@ -136,4 +136,7 @@ extension String {
         let boundingBox = self.boundingRect(with: constraintRect, options: options, attributes: attributes, context: nil)
         return boundingBox.width
     }
+    
+    
 }
+
