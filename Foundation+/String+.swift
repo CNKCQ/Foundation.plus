@@ -68,7 +68,7 @@ public extension String {
     /// Accesses the element at the specified position. Support "abc"[-1] == "c"
     ///
     /// - Parameter index: The position of the element to access.
-    subscript(index: Int) -> Character {
+    subscript(_ index: Int) -> Character {
         let idx = index < 0 ? (length - abs(index)) : index
         return self[self.index(startIndex, offsetBy: idx)]
     }

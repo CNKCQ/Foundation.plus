@@ -15,7 +15,6 @@ public extension Character {
         }
         return Int(lasc - rasc)
     }
-
     
 }
 
